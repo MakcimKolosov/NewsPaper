@@ -1,0 +1,12 @@
+{% extends 'default.html' %}
+
+{% block content %}
+    <h2>Все новости</h2>
+    <ul>
+        {% for post in news %}
+            <li>
+                <a href="{% url 'news_detail' post.id %}">{{ post.title }}</a> - {{ post.created_at|date:"d.m.Y" }} - {{ post.preview }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
